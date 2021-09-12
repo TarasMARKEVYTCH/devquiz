@@ -3,3 +3,9 @@ package.json
 node_modules
 front-end/node-modules
 front-end/package-lock.json
+
+back-end/node-modules
+back-end/package-lock.json
+back-end/package.json
+back-end/node-modules
+back-end/.env
