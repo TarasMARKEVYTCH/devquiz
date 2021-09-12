@@ -1,0 +1,23 @@
+{
+  "name": "devquiz",
+  "version": "1.0.0",
+  "description": "Test your brain",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TarasMARKEVYTCH/devquiz.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TarasMARKEVYTCH/devquiz/issues"
+  },
+  "homepage": "https://github.com/TarasMARKEVYTCH/devquiz#readme",
+  "dependencies": {
+    "@vue/cli": "^4.5.13",
+    "vue": "^2.6.14"
+  }
+}

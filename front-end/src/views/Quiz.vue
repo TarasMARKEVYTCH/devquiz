@@ -33,7 +33,7 @@ export default {
                 this.result += res.point; 
             })
             .catch((err) => {console.log(err)});
-            sendRequest(`http://localhost:3000/api/question/categorie/1`, "GET") // get new question
+            sendRequest(`http://localhost:3000/api/question/categorie/${ this.$route.params.id }`, "GET") // get new question
             .then((data) => {
                 this.question = data;
                 console.log(this.question.id);
@@ -56,7 +56,8 @@ export default {
     },
     beforeMount() {
         this.numberRandom = this.getRandom(1,3);  
-        sendRequest(`http://localhost:3000/api/question/categorie/1`, "GET") 
+        sendRequest(`http://localhost:3000/api/question/categorie/${ this.$route.params.id }`, "GET") 
+        // console.log(this.$routes.params.id)
         .then((data) => {
             this.question = data;
         })
@@ -88,7 +89,7 @@ export default {
         <div class="finish" v-else>Finish</div>
         <div class="err" v-if="err != ''">{{ err }}</div>
         <img :src="err" alt="">
-        <div class="chek">result = {{result}} </div>
+        <div class="chek">result = {{$route.params.id}} </div>
     </div>
 </template>
 <style lang="sass">
