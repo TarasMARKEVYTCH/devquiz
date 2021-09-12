@@ -3,15 +3,23 @@ const mysql = require("mysql");
 const bodyParser = require("body-parser");
 const dotenv = require("dotenv").config();
 
-// conn.connect((err) => {
-//     if (err) {
-//         return console.error("Oups, --ERROR: " + err.message);
-//     } else {
-//         console.log("Database connection --TEST: OK!");
-//     }
-// });
+const conn = mysql.createConnection({
+    password: process.env.passDB,
+    user: process.env.userDB,
+    database: process.env.database,
+    host: process.env.hostDB,
+    port: process.env.portDB,
+  });
 
-// conn.end();
+conn.connect((err) => {
+    if (err) {
+        return console.error("Oups, --ERROR: " + err.message);
+    } else {
+        console.log("Database connection --TEST: OK!");
+    }
+});
+
+conn.end();
 
 const app = express();
 
