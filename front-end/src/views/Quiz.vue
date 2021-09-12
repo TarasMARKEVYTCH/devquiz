@@ -1,93 +1,95 @@
 <script>
+import {sendRequest} from "../helpers/sendRequest";
 export default {
     name: "Quiz",
     data() {
         return {
-            questions: [{id: 1,
-                        text: "question 1 rep3",
-                        responseText1: "php",
-                        response1:false,
-                        responseText2: "js",
-                        response2:false,
-                        responseText3: "java",
-                        response3:true,
-                        responseText4: "python",
-                        response4:false,
-                        },
-                        {id: 2,
-                        text: "question 2 rep 1 et 3",
-                        responseText1: "ruby",
-                        response1:true,
-                        responseText2: "c#",
-                        response2:false,
-                        responseText3: "delfi",
-                        response3:true,
-                        responseText4: "go",
-                        response4:false,
-                        }],
+            question: undefined,
             counter: 0,
+            result: 0,
+            numberRandom: NaN,
             idex: 0,
             body: {
                 var1: false,
                 var2: false,
                 var3: false,
                 var4: false,
-            }
+            },
+            err: ""
         }
     },
     methods: {
         checkResponse() {
-            console.log("ok");
-            console.log(this.counter)
-            console.log(this.body);
-
-            if(
-                this.body.var1 === this.questions[this.idex].response1 &&
-                this.body.var2 === this.questions[this.idex].response2 &&
-                this.body.var3 === this.questions[this.idex].response3 &&
-                this.body.var4 === this.questions[this.idex].response4
+            if( 
+                this.body.var1 == false &&
+                this.body.var2 == false &&
+                this.body.var3 == false &&
+                this.body.var4 == false 
             ) {
-                this.counter++
-            }
-                this.idex++;
+                this.err = "Choisissez au moins une reponse!!!"
+            } else {
+                sendRequest(`http://localhost:3000/api/question/${ this.question.id }`, "POST", this.body)  // check question on back-end
+            .then((res) => {
+                this.result += res.point; 
+            })
+            .catch((err) => {console.log(err)});
+            sendRequest(`http://localhost:3000/api/question/categorie/1`, "GET") // get new question
+            .then((data) => {
+                this.question = data;
+                console.log(this.question.id);
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+                this.counter++;
                 this.body.var1 = false;
                 this.body.var2 = false;
                 this.body.var3 = false;
                 this.body.var4 = false;
-
-
-        }
+                this.numberRandom = this.getRandom(1,3);
+            this.err = ""
+            }
+        },
+        getRandom(min, max){
+           return Math.floor(Math.random() * (max - min + 1) + min)
+        },
+    },
+    beforeMount() {
+        this.numberRandom = this.getRandom(1,3);  
+        sendRequest(`http://localhost:3000/api/question/categorie/1`, "GET") 
+        .then((data) => {
+            this.question = data;
+        })
+        .catch((err) => {
+            console.log(err);
+        })
     }
 };
-
 </script>
-
 <template>
     <div class="main-layout">
         <h1>hello</h1>
-        <div action="#" v-if="idex<questions.length">
-            <p>{{ questions[idex].text }}</p>
-            <label for="">{{questions[idex].responseText1}}</label>
-            <input type="checkbox" v-model="body.var1">
-            <label for="">{{questions[idex].responseText2}}</label>
-            <input type="checkbox" v-model="body.var2">
-            <label for="">{{questions[idex].responseText3}}</label>
-            <input type="checkbox" v-model="body.var3">
-            <label for="">{{questions[idex].responseText4}}</label>
-            <input type="checkbox" v-model="body.var4">
-            <input type="submit" v-on:click="checkResponse">
+        <div action="#" v-if="counter !== 6 && question != undefined">
+            <p>{{ question.id }} {{ question.description }}</p>
+            <label for="" v-if="question.textAnswer1 !== null && numberRandom === 1">{{question.textAnswer1}}<input type="checkbox" v-model="body.var1"></label>
+            <label for="" v-if="question.textAnswer2 !== null && numberRandom === 1">{{question.textAnswer2}}<input type="checkbox" v-model="body.var2"></label>
+            <label for="" v-if="question.textAnswer3 !== null && numberRandom === 1">{{question.textAnswer3}}<input type="checkbox" v-model="body.var3"></label>
+            <label for="" v-if="question.textAnswer4 !== null && numberRandom === 1">{{question.textAnswer4}}<input type="checkbox" v-model="body.var4"></label>
+            <label for="" v-if="question.textAnswer2 !== null && numberRandom === 2">{{question.textAnswer2}}<input type="checkbox" v-model="body.var2"></label>
+            <label for="" v-if="question.textAnswer4 !== null && numberRandom === 2">{{question.textAnswer4}}<input type="checkbox" v-model="body.var4"></label>
+            <label for="" v-if="question.textAnswer3 !== null && numberRandom === 2">{{question.textAnswer3}}<input type="checkbox" v-model="body.var3"></label>
+            <label for="" v-if="question.textAnswer1 !== null && numberRandom === 2">{{question.textAnswer1}}<input type="checkbox" v-model="body.var1"></label>
+            <label for="" v-if="question.textAnswer2 !== null && numberRandom === 3">{{question.textAnswer2}}<input type="checkbox" v-model="body.var2"></label>
+            <label for="" v-if="question.textAnswer1 !== null && numberRandom === 3">{{question.textAnswer1}}<input type="checkbox" v-model="body.var1"></label>
+            <label for="" v-if="question.textAnswer4 !== null && numberRandom === 3">{{question.textAnswer4}}<input type="checkbox" v-model="body.var4"></label>
+            <label for="" v-if="question.textAnswer3 !== null && numberRandom === 3">{{question.textAnswer3}}<input type="checkbox" v-model="body.var3"></label>
+            <input type="submit" @click="checkResponse">
         </div>
-
-
         <div class="finish" v-else>Finish</div>
-
-        <div class="chek">result = {{counter}} </div>
-
-        
+        <div class="err" v-if="err != ''">{{ err }}</div>
+        <img :src="err" alt="">
+        <div class="chek">result = {{result}} </div>
     </div>
 </template>
-
-
 <style lang="sass">
-
 </style>

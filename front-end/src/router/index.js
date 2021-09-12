@@ -1,8 +1,8 @@
-import { createRouter, createWebHashHistory } from "vue-router";
+import { createRouter, createWebHashHistory} from "vue-router";
 
 const routes = [
   {
-    path: "/",
+    path: '/',
     name: "Quiz",
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/Quiz.vue"),
@@ -10,8 +10,9 @@ const routes = [
 ];
 
 const router = createRouter({
+  // mode: 'history',
   history: createWebHashHistory(),
-  routes,
+  routes
 });
 
 
