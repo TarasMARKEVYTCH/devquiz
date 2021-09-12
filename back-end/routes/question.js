@@ -2,11 +2,11 @@
 const express = require("express");
 const router = express.Router();
 
-const postCtrl = require("../controllers/question");
+const questionCtrl = require("../controllers/question");
 
 // http://localhost:3000/api/question/categorie/:id/
-router.get("/categorie/:id", postCtrl.oneQuestionByCategorie);
+router.get("/categorie/:id", questionCtrl.oneQuestionByCategorie);
 // http://localhost:3000/api/question/:id/
-router.post("/:id", postCtrl.verficationQuestion)
+router.post("/:id", questionCtrl.verficationQuestion)
 
 module.exports = router;

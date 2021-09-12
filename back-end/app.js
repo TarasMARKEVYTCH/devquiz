@@ -39,8 +39,10 @@ app.use((req, res, next) => {
 
 app.use(bodyParser.json());
 
-const questionRoutes = require('./routes/Question');
+const questionRoutes = require('./routes/question');
+const resultRoutes = require('./routes/result');
 
 app.use('/api/question', questionRoutes);
+app.use('/api/result', resultRoutes);
 
 module.exports = app;
