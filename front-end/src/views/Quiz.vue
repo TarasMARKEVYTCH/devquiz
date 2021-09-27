@@ -1,5 +1,9 @@
+
+
 <script>
 import {sendRequest} from "../helpers/sendRequest";
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 export default {
     name: "Quiz",
     data() {
@@ -17,6 +21,9 @@ export default {
             },
             err: ""
         }
+    },
+    components:{
+        Header, Footer
     },
     methods: {
         checkResponse() {
@@ -68,28 +75,36 @@ export default {
 };
 </script>
 <template>
-    <div class="main-layout">
+    <div>
+        <Header></Header>
         <h1>hello</h1>
-        <div action="#" v-if="counter !== 6 && question != undefined">
-            <p>{{ question.id }} {{ question.description }}</p>
-            <label for="" v-if="question.textAnswer1 !== null && numberRandom === 1">{{question.textAnswer1}}<input type="checkbox" v-model="body.var1"></label>
-            <label for="" v-if="question.textAnswer2 !== null && numberRandom === 1">{{question.textAnswer2}}<input type="checkbox" v-model="body.var2"></label>
-            <label for="" v-if="question.textAnswer3 !== null && numberRandom === 1">{{question.textAnswer3}}<input type="checkbox" v-model="body.var3"></label>
-            <label for="" v-if="question.textAnswer4 !== null && numberRandom === 1">{{question.textAnswer4}}<input type="checkbox" v-model="body.var4"></label>
-            <label for="" v-if="question.textAnswer2 !== null && numberRandom === 2">{{question.textAnswer2}}<input type="checkbox" v-model="body.var2"></label>
-            <label for="" v-if="question.textAnswer4 !== null && numberRandom === 2">{{question.textAnswer4}}<input type="checkbox" v-model="body.var4"></label>
-            <label for="" v-if="question.textAnswer3 !== null && numberRandom === 2">{{question.textAnswer3}}<input type="checkbox" v-model="body.var3"></label>
-            <label for="" v-if="question.textAnswer1 !== null && numberRandom === 2">{{question.textAnswer1}}<input type="checkbox" v-model="body.var1"></label>
-            <label for="" v-if="question.textAnswer2 !== null && numberRandom === 3">{{question.textAnswer2}}<input type="checkbox" v-model="body.var2"></label>
-            <label for="" v-if="question.textAnswer1 !== null && numberRandom === 3">{{question.textAnswer1}}<input type="checkbox" v-model="body.var1"></label>
-            <label for="" v-if="question.textAnswer4 !== null && numberRandom === 3">{{question.textAnswer4}}<input type="checkbox" v-model="body.var4"></label>
-            <label for="" v-if="question.textAnswer3 !== null && numberRandom === 3">{{question.textAnswer3}}<input type="checkbox" v-model="body.var3"></label>
-            <input type="submit" @click="checkResponse">
+        <div class="counter">
+            <h3>Temps restant - 01:00 min</h3>
+            <h2 class="question-num">Question 1/10</h2>
         </div>
-        <div class="finish" v-else>Finish</div>
-        <div class="err" v-if="err != ''">{{ err }}</div>
-        <img :src="err" alt="">
-        <div class="chek">result = {{$route.params.id}} </div>
+        <main class="d-flex d-wrap">
+            <form method="POST" class="quiz-form d-flex f-wrap" v-if="counter !== 6 && question != undefined">
+                <p class="question-text">{{ question.id }} {{ question.description }}</p>
+                <label for="" v-if="question.textAnswer1 !== null && numberRandom === 1">{{question.textAnswer1}}<input type="checkbox" v-model="body.var1"></label>
+                <label for="" v-if="question.textAnswer2 !== null && numberRandom === 1">{{question.textAnswer2}}<input type="checkbox" v-model="body.var2"></label>
+                <label for="" v-if="question.textAnswer3 !== null && numberRandom === 1">{{question.textAnswer3}}<input type="checkbox" v-model="body.var3"></label>
+                <label for="" v-if="question.textAnswer4 !== null && numberRandom === 1">{{question.textAnswer4}}<input type="checkbox" v-model="body.var4"></label>
+                <label for="" v-if="question.textAnswer2 !== null && numberRandom === 2">{{question.textAnswer2}}<input type="checkbox" v-model="body.var2"></label>
+                <label for="" v-if="question.textAnswer4 !== null && numberRandom === 2">{{question.textAnswer4}}<input type="checkbox" v-model="body.var4"></label>
+                <label for="" v-if="question.textAnswer3 !== null && numberRandom === 2">{{question.textAnswer3}}<input type="checkbox" v-model="body.var3"></label>
+                <label for="" v-if="question.textAnswer1 !== null && numberRandom === 2">{{question.textAnswer1}}<input type="checkbox" v-model="body.var1"></label>
+                <label for="" v-if="question.textAnswer2 !== null && numberRandom === 3">{{question.textAnswer2}}<input type="checkbox" v-model="body.var2"></label>
+                <label for="" v-if="question.textAnswer1 !== null && numberRandom === 3">{{question.textAnswer1}}<input type="checkbox" v-model="body.var1"></label>
+                <label for="" v-if="question.textAnswer4 !== null && numberRandom === 3">{{question.textAnswer4}}<input type="checkbox" v-model="body.var4"></label>
+                <label for="" v-if="question.textAnswer3 !== null && numberRandom === 3">{{question.textAnswer3}}<input type="checkbox" v-model="body.var3"></label>
+                <input type="submit" value="Valider" class="response-btn" @click="checkResponse">
+            </form>
+            <div class="finish" v-else>Finish</div>
+            <div class="err" v-if="err != ''">{{ err }}</div>
+            <img :src="err" alt="">
+            <div class="chek">result = {{result}} </div>
+        </main>
+        <Footer></Footer>
     </div>
 </template>
 <style lang="sass">
