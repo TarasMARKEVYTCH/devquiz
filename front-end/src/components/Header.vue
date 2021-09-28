@@ -12,7 +12,7 @@
             <ul class="nav-link d-flex">
                 <li class="nav-link-item"><router-link to="../views/Categories">Categories</router-link></li>
                 <li class="nav-link-item"><a href="forum.html">Forum</a></li>
-                <li class="nav-link-item"><a href="contact.html">Contact</a></li>
+                <li class="nav-link-item"><router-link to="../views/Contact">Contact</router-link></li>
                 <li class="nav-link-item"><a href="contact.html"><img src="images/in 2.png" alt="door logo"></a></li>
             </ul>
         </nav>
@@ -20,7 +20,7 @@
             <!-- <div class="subheader-descr d-flex f-wrap"> -->
                 <h2 class="subheader-title">En savoir plus sur <br> notre projet</h2>
                 <h6 class="subheader-subtitle">Plus de 2000 participants</h6>
-                <button type="submit" class="discover">DÉCOUVRIR</button>
+                <router-link to="../Discover" class="discover">DÉCOUVRIR</router-link>
             <!-- </div> -->
                 <!-- <img src="images/Office workers.png" alt="office workers logo" class="subheader-img d-flex"> -->
         </div>
@@ -35,9 +35,15 @@
                 <input type="submit" id="header-connexion" name="connexion" value="CONNECTER">
             </form>
             <div class="header-connexion-link d-flex">
-                <router-link to="../views/SignUp">Créer un compte</router-link><span id="separator">|</span>
+                <router-link to="../views/SignUp">Créer un compte</router-link><span class="separator">|</span>
                 <router-link to="../views/RecupPass">Mot de pass oublié</router-link>
             </div>
         </div>
     </header>
 </template>
+
+<script>
+export default {
+    name: 'Header'
+}
+</script>

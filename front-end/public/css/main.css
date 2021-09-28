@@ -21,6 +21,9 @@ a {
     color: #000;
     text-decoration: none;
 }
+ul{
+    list-style: none;
+}
 
     /*==================== HEADER =====================*/
 
@@ -94,6 +97,8 @@ nav {
     margin-bottom: 1rem;
 }
 .discover{
+    display: flex;
+    justify-content: center;
     width: 30%;
     padding: 0.8rem;
     border-radius: 20px;
@@ -114,10 +119,11 @@ nav {
 }
 
 
-    /* ======================= MAIN ========================= */
+                 /* ======================= MAIN ========================= */
 
 main{
     width: 100%;
+    min-height: 100vh;
     padding: 3rem;
     justify-content: space-between;
 }
@@ -305,9 +311,12 @@ h1{
 
 footer{
     width: 100%;
+    padding: 1rem;
     min-height: 100px;
     background: linear-gradient(89.77deg, #330065 10.59%, #650097 69.73%, #670099 69.74%, #CD00CC 118.26%);
 }
+
+
 /* ================================== QUIZ ======================= */
 .counter{
     width: 100%;
@@ -319,6 +328,7 @@ footer{
     flex-direction: column;
     width: 100%;
     border: 1px solid #999;
+    border-radius: 0.7rem;
     padding: 1rem;
     align-items: center;
 }
@@ -361,6 +371,9 @@ footer{
     cursor: pointer;
     transform: scale(1.05);
 }
+
+/* =================================== SiguP form ========================= */
+
 .signup{
     width: 30%;
     align-items: center;
@@ -436,4 +449,105 @@ footer{
 }
 .categorie-item-title a:hover{
     color: antiquewhite;
+}
+.separator{
+    margin: 0 0.4rem;
+    color: #fff;
+}
+
+.contact-form{
+    width: 100%;
+    justify-content: space-between;
+    box-shadow: 4px 4px 21px rgba(0, 0, 0, 0.31);
+    padding: 2.5rem;
+    margin-bottom: 3rem;
+}
+.contact-info{
+    width: 25%;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    margin-right: 2rem;
+}
+#contact-list{
+    margin: 1rem 0;
+    border-radius: 5px;
+    padding: 0.2rem;
+    background: rgba(51, 0, 101, 0.40);
+    color: #ffff;
+    border: 1px solid rgba(51, 0, 101, 100);
+    text-align: center;
+}
+#label-mail{
+    margin-top: 2rem;
+    color: rgba(51, 0, 101, 100);
+    font-weight: bold;
+}
+#mail-field{
+    width: 100%;
+    margin: 1rem 0;
+    border-radius: 5px;
+    padding: 0.2rem;
+    text-align: center;
+    padding: 0.5rem;
+    border: none;
+    background: rgba(51, 0, 101, 0.40);
+    border-radius: 8px;
+    color: #fff;
+    border: 1px solid rgba(51, 0, 101, 100);
+}
+#mail-field::placeholder{
+    color: #ffffff;
+}
+
+#contact-msg {
+    width: 70%;
+    border: 1px solid rgba(51, 0, 101, 100);
+    padding: 1rem;
+}
+.contact-form-title{
+    font-size: 2rem;
+    color: rgba(51, 0, 101, 100);
+    font-weight: bolder;
+}
+#contact-send{
+    width: 20%;
+    margin: 2rem;
+    padding: 1rem;
+    border-radius: 2rem;
+    color: #ffffff;
+    background: linear-gradient(270deg, #FFCC00 0%, #CD00CC 46.15%, #330065 100%);
+}
+
+/* ======================== USER ====================== */
+.user-title{
+    margin: auto;
+}
+.user {
+    width: 100%;
+    text-align: center;
+}
+.user-photo{
+    flex: 0 1 400px;
+    border: 1px solid #000;
+    margin-right: 1rem;
+}
+.user-info {
+    flex: 1 1 700px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+.user-info  p{
+    background-color: #9b8f8f7c;
+}
+.quiz{
+    width: 100%;
+    padding: 2rem;
+}
+.quiz h2{
+    width: 100%;
+    text-align: center;
+    background: #ffcc0063;
+    height: 50px;
+    
 }

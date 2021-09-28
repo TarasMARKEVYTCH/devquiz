@@ -83,7 +83,7 @@ export default {
             <h2 class="question-num">Question 1/10</h2>
         </div>
         <main class="d-flex d-wrap">
-            <form method="POST" class="quiz-form d-flex f-wrap" v-if="counter !== 6 && question != undefined">
+            <form class="quiz-form d-flex f-wrap" v-if="counter !== 6 && question != undefined">
                 <p class="question-text">{{ question.id }} {{ question.description }}</p>
                 <label for="" v-if="question.textAnswer1 !== null && numberRandom === 1">{{question.textAnswer1}}<input type="checkbox" v-model="body.var1"></label>
                 <label for="" v-if="question.textAnswer2 !== null && numberRandom === 1">{{question.textAnswer2}}<input type="checkbox" v-model="body.var2"></label>

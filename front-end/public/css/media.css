@@ -44,7 +44,7 @@
     .header-connexion-link a{
         color: #ED7D2B;
     }
-    #separator{
+    .separator{
         margin: 0 0.4rem;
         color: #fff;
     }
@@ -125,6 +125,15 @@
         width: 100%;
         padding: 2rem;
         border-radius: 10px 10px 0 0;
+    }
+    .contact-info{
+        width: 100%;
+    }
+    #contact-send{
+        width: 100%;
+    }
+    #contact-msg {
+        width: 100%;
     }
 
 }

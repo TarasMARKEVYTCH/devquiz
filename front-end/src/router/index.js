@@ -36,11 +36,29 @@ const routes = [
     name: 'CategorieItem',
     component: () =>
     import('../views/CategorieItem.vue')
-  }
+  },
+  {
+    path: '/Contact',
+    name: 'Contact',
+    component: () =>
+    import('../views/Contact.vue')
+  },
+  {
+    path: '/Discover',
+    name: 'Discover',
+    component: () =>
+    import('../views/Discover.vue')
+  },
+  {
+    path: '/Account',
+    name: 'Account',
+    component: () =>
+    import('../views/Account.vue')
+  },
+
 ];
 
 const router = createRouter({
-  // mode: 'history',
   history: createWebHistory(),
   routes
 });
