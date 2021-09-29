@@ -2,7 +2,7 @@ import { createRouter, createWebHistory} from "vue-router";
 
 const routes = [
   {
-    path: '/:id',
+    path: '/Quiz',
     name: "Quiz",
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/Quiz.vue"),
@@ -55,6 +55,13 @@ const routes = [
     component: () =>
     import('../views/Account.vue')
   },
+  {
+    path: '/Forum',
+    name: 'Forum',
+    component: () =>
+    import('../views/Forum.vue')
+  },
+  
 
 ];
 

@@ -4,25 +4,29 @@
             <div class="logo d-flex">
                 <router-link to="/"><img src="images/hapi-seeklogo.com.svg" alt="main logo"></router-link>
             </div>
-            <div class="hamburger">
+            <div
+            class="hamburger"
+            @click="hamburgerActive = !hamburgerActive"
+            :class="{hamburgerActive: hamburgerActive}">
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
             </div>
-            <ul class="nav-link d-flex">
-                <li class="nav-link-item"><router-link to="../views/Categories">Categories</router-link></li>
-                <li class="nav-link-item"><a href="forum.html">Forum</a></li>
-                <li class="nav-link-item"><router-link to="../views/Contact">Contact</router-link></li>
-                <li class="nav-link-item"><a href="contact.html"><img src="images/in 2.png" alt="door logo"></a></li>
+            <ul class="nav-link d-flex"
+            :class="{navLinkActive: hamburgerActive}">
+                
+                <li class="nav-link-item"><router-link to="../views/Categories" active-class="active">Categories</router-link></li>
+                <li class="nav-link-item"><router-link to="../views/Forum" active-class="active">Forum</router-link></li>
+                <li class="nav-link-item"><router-link to="../views/Contact" active-class="active">Contact</router-link></li>
+                
+                <li class="nav-link-item"><router-link to="../views/Account"><img src="images/in 2.png" alt="door logo">
+                </router-link></li>
             </ul>
         </nav>
         <div class="subheader d-flex">
-            <!-- <div class="subheader-descr d-flex f-wrap"> -->
                 <h2 class="subheader-title">En savoir plus sur <br> notre projet</h2>
                 <h6 class="subheader-subtitle">Plus de 2000 participants</h6>
                 <router-link to="../Discover" class="discover">DÉCOUVRIR</router-link>
-            <!-- </div> -->
-                <!-- <img src="images/Office workers.png" alt="office workers logo" class="subheader-img d-flex"> -->
         </div>
         <div class="header-login d-flex f-wrap">
             <form method="POST" class="header-login-form d-flex f-wrap">
@@ -44,6 +48,21 @@
 
 <script>
 export default {
-    name: 'Header'
+    data: () =>{
+       return {
+           hamburgerActive: false,
+           navlinkActive: false,
+           active: false
+
+           }
+    },
+    name: 'Header',
+    
 }
 </script>
+
+<style scoped>
+.active{
+    color: rgb(255, 145, 0);
+}
+</style>
