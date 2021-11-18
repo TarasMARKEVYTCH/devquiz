@@ -1,6 +1,5 @@
 <template>
     <div>
-        <Header></Header>
             <main class="d-flex f-wrap">
                 <div class="signup d-flex">
                     <form method="POST" class="signup-form d-flex">
@@ -13,17 +12,12 @@
                     </form>
                 </div>
             </main>
-        <Footer></Footer>
-        <!-- <router-view></router-view> -->
     </div>
 </template>
 
 <script>
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
 export default {
     components: {
-        Header, Footer
     }
 }
 </script>

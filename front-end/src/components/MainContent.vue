@@ -20,7 +20,7 @@
                     <h4 class="descr-card-item-title">Lorem, ipsum dolor.</h4>
                     <p class="descr-card-item-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, perferendis?</p>
                 </div>
-                <div class="login d-flex f-wrap">
+                <!-- <div class="login d-flex f-wrap">
                     <form method="POST" class="login-form d-flex f-wrap">
                         <div class="login-title">
                             <h2>LOG IN</h2>
@@ -32,7 +32,7 @@
                     </form>
                     <router-link to="/SignUp" class="connexion-link">Créer un compte</router-link> 
                     <router-link to="/RecupPass" class="connexion-link">Mot de pass oublié</router-link>
-                </div>
+                </div> -->
             </article>
             <Languages></Languages>
         </section>

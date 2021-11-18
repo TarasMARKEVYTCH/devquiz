@@ -1,10 +1,10 @@
 <template>
     <div>
-        <Header></Header>
             <main class="categorie d-flex">
                 <article class="categorie-item d-flex">
                     <div class="categorie-item-title">
                         <h2>Lorem</h2>
+                        
                         <router-link to="/Quiz">Commencer le test</router-link>
                     </div>
                     <div class="categorie-item-descr">
@@ -14,17 +14,14 @@
                     </div>
                 </article>
             </main>
-        <Footer></Footer>
     </div>
 </template>
 
 <script>
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
 export default {
+    props: ['langs'],
     name: 'CategorieItem',
     components: {
-        Header, Footer
     }
 }
 </script>

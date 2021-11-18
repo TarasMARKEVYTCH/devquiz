@@ -1,6 +1,5 @@
 <template>
     <div>
-        <Header></Header>
         <main class="d-flex f-wrap">
             <h2 class="user-title">Information personnelle</h2>
             <section class="user d-flex f-wrap">
@@ -20,17 +19,13 @@
                 
             </section>
         </main>
-        <Footer></Footer>
     </div>
 </template>
 
 <script>
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
 export default {
     name: 'Account',
     components: {
-        Header, Footer
     }
 }
 </script>

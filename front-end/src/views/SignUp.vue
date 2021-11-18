@@ -1,9 +1,8 @@
 <template>
-<div>
-    <Header></Header>
-        <main class="d-flex f-wrap">
-            <div class="signup d-flex">
-                <form method="POST" class="signup-form d-flex">
+<div class="col-md-12">
+        <main class="d-flex f-wrap col-md-8 mx-auto">
+            <div class="signup d-flex col-12 bg-light">
+                <form method="POST" class="signup-form d-flex text-light">
                     <div class="login-title">
                         <h2>Sign Up</h2>
                         <img src="images/in 1.png" alt="door logo">
@@ -17,16 +16,14 @@
                 </form>
             </div>
         </main>
-    <Footer></Footer>
 </div>
 </template>
 
 <script>
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
 export default {
+    name:
+        'signUp',
     components: {
-        Header, Footer
     }
 }
 </script>

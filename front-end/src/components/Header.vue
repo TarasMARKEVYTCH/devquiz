@@ -12,36 +12,24 @@
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
             </div>
-            <ul class="nav-link d-flex"
-            :class="{navLinkActive: hamburgerActive}">
-                
-                <li class="nav-link-item"><router-link to="../views/Categories" active-class="active">Categories</router-link></li>
-                <li class="nav-link-item"><router-link to="../views/Forum" active-class="active">Forum</router-link></li>
-                <li class="nav-link-item"><router-link to="../views/Contact" active-class="active">Contact</router-link></li>
-                
-                <li class="nav-link-item"><router-link to="../views/Account"><img src="images/in 2.png" alt="door logo">
-                </router-link></li>
-            </ul>
+            <div class="dropdown">
+                <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    Menu
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><router-link class="dropdown-item" to="../views/Contact">Login</router-link></li>
+                    <li><router-link class="dropdown-item" to="../views/Categories">Categories</router-link></li>
+                    <li><router-link class="dropdown-item" to="../views/Forum">Forum</router-link></li>
+                    <li><router-link class="dropdown-item" to="../views/Contact">Contact</router-link></li>
+                    <li><router-link class="dropdown-item" to="../views/SignUp">SignUp</router-link></li>
+                </ul>
+            </div>
         </nav>
+        
         <div class="subheader d-flex">
                 <h2 class="subheader-title">En savoir plus sur <br> notre projet</h2>
                 <h6 class="subheader-subtitle">Plus de 2000 participants</h6>
                 <router-link to="../Discover" class="discover">DÉCOUVRIR</router-link>
-        </div>
-        <div class="header-login d-flex f-wrap">
-            <form method="POST" class="header-login-form d-flex f-wrap">
-                <div class="header-login-title d-flex">
-                    <h2>LOG IN</h2>
-                    <img src="images/in 2.png" alt="door logo">
-                </div>
-                <input type="email" id="mail" name="email" placeholder="Votre mail">
-                <input type="password" id="pass" name="password" placeholder="Mot de passe">
-                <input type="submit" id="header-connexion" name="connexion" value="CONNECTER">
-            </form>
-            <div class="header-connexion-link d-flex">
-                <router-link to="../views/SignUp">Créer un compte</router-link><span class="separator">|</span>
-                <router-link to="../views/RecupPass">Mot de pass oublié</router-link>
-            </div>
         </div>
     </header>
 </template>

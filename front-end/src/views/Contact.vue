@@ -1,6 +1,5 @@
 <template>
     <div>
-        <Header></Header>
         <main d-flex>
             <form action="#" class="contact-form d-flex f-wrap"> 
                 <div class="contact-info d-flex">
@@ -19,18 +18,15 @@
                 <input type="submit" id="contact-send"  value="Envoyer">
             </form>
             <h2>Ou retrouvez nous sur :</h2>
+            
         </main>
-        <Footer></Footer>
     </div>
 </template>
 
 <script>
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
 export default {
     name: 'Contact',
     components: {
-        Header, Footer
     }
     
 }
